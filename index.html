@@ -6,1004 +6,505 @@
     <title>THERAPY GYM | Αγγελάκης Νικόλαος & ΣΙΑ Ε.Ε.</title>
     <meta
       name="description"
-      content="THERAPY GYM - Αγγελάκης Νικόλαος & ΣΙΑ Ε.Ε. στο Ηράκλειο. Φυσικοθεραπεία, αποκατάσταση, θεραπευτική άσκηση, Schroth, McKenzie και εξατομικευμένη φροντίδα."
+      content="THERAPY GYM - Αγγελάκης Νικόλαος & ΣΙΑ Ε.Ε. στο Ηράκλειο. Φυσικοθεραπεία, αποκατάσταση, θεραπευτική άσκηση, Schroth και Google Reviews."
     />
     <link rel="icon" type="image/png" href="logo-color.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
     <style>
       :root {
-        --bg: #07131d;
-        --bg-deep: #051019;
-        --panel: rgba(10, 25, 38, 0.8);
-        --panel-strong: rgba(12, 30, 46, 0.92);
-        --text: #ecf8fb;
-        --muted: #a8c0ca;
-        --line: rgba(154, 225, 235, 0.14);
-        --cyan: #48d6e7;
-        --mint: #8ff2c7;
-        --blue: #1a86b8;
-        --ink: #09131d;
-        --shadow: 0 28px 80px rgba(0, 0, 0, 0.36);
-        --radius-xl: 34px;
-        --radius-lg: 24px;
-        --radius-md: 18px;
-        --container: 1160px;
+        --primary: #48d6e7;
+        --secondary: #8ff2c7;
+        --bg1: #08131d;
+        --bg2: #0d1d2a;
+        --card: rgba(10, 24, 36, 0.92);
+        --card-soft: rgba(255, 255, 255, 0.05);
+        --text: #eef8fb;
+        --muted: rgba(238, 248, 251, 0.74);
+        --border: rgba(255, 255, 255, 0.14);
+        --shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+        --radius: 26px;
       }
 
       * {
         box-sizing: border-box;
       }
 
-      html {
-        scroll-behavior: smooth;
+      html,
+      body {
+        min-height: 100%;
       }
 
       body {
         margin: 0;
-        min-height: 100vh;
         font-family: "Manrope", sans-serif;
         color: var(--text);
         background:
-          radial-gradient(circle at 14% 18%, rgba(72, 214, 231, 0.18), transparent 28%),
-          radial-gradient(circle at 82% 20%, rgba(143, 242, 199, 0.14), transparent 24%),
-          radial-gradient(circle at 70% 88%, rgba(26, 134, 184, 0.16), transparent 28%),
-          linear-gradient(160deg, var(--bg) 0%, var(--bg-deep) 52%, #091824 100%);
+          radial-gradient(620px 360px at 14% 18%, rgba(72, 214, 231, 0.2), transparent 60%),
+          radial-gradient(620px 360px at 86% 16%, rgba(143, 242, 199, 0.18), transparent 58%),
+          linear-gradient(145deg, var(--bg1), var(--bg2));
       }
 
-      body::before,
-      body::after {
-        content: "";
+      .watermark {
         position: fixed;
         inset: 0;
         pointer-events: none;
-      }
-
-      body::before {
-        background:
-          linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-        background-size: 56px 56px;
-        mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.8), transparent 88%);
-        opacity: 0.36;
-      }
-
-      body::after {
-        background: url("logo-color.png") center / min(280px, 28vw) no-repeat;
+        background: url("logo-color.png") center / min(220px, 32vw) no-repeat;
         opacity: 0.05;
       }
 
-      a {
-        color: inherit;
-      }
-
-      .page-shell {
-        width: min(var(--container), calc(100% - 2rem));
-        margin: 0 auto;
-        padding: 2rem 0 3.5rem;
-      }
-
-      .hero {
-        position: relative;
-        overflow: hidden;
-        padding: clamp(1.4rem, 3vw, 2rem);
-        border: 1px solid var(--line);
-        border-radius: var(--radius-xl);
-        background:
-          linear-gradient(145deg, rgba(11, 28, 42, 0.96), rgba(6, 18, 27, 0.92)),
-          linear-gradient(135deg, rgba(72, 214, 231, 0.08), rgba(143, 242, 199, 0.06));
-        box-shadow: var(--shadow);
-        backdrop-filter: blur(20px);
-      }
-
-      .hero::after {
-        content: "";
-        position: absolute;
-        inset: auto -6rem -7rem auto;
-        width: 18rem;
-        height: 18rem;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(72, 214, 231, 0.16), transparent 68%);
-        pointer-events: none;
-      }
-
-      .hero-top {
+      .wrap {
+        min-height: 100vh;
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
+        justify-content: center;
+        padding: 18px 12px;
+        position: relative;
+        z-index: 1;
       }
 
-      .brand {
-        display: inline-flex;
+      .card {
+        width: min(560px, 100%);
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(20px);
+        overflow: hidden;
+      }
+
+      .ribbon {
+        height: 7px;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+      }
+
+      .inner {
+        padding: 16px 14px 22px;
+      }
+
+      .header {
+        display: flex;
         align-items: center;
-        gap: 1rem;
-        text-decoration: none;
-        min-width: 0;
+        gap: 12px;
       }
 
-      .brand-mark {
-        width: 4.1rem;
-        height: 5rem;
-        padding: 0.32rem;
+      .logo {
+        width: 74px;
+        height: 88px;
+        padding: 6px;
         display: grid;
         place-items: center;
-        border-radius: 28px;
-        overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        flex-shrink: 0;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
         background:
           linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03)),
-          linear-gradient(135deg, rgba(72, 214, 231, 0.1), rgba(143, 242, 199, 0.08));
-        box-shadow: 0 18px 42px rgba(72, 214, 231, 0.14);
-        flex-shrink: 0;
+          linear-gradient(135deg, rgba(72, 214, 231, 0.08), rgba(143, 242, 199, 0.08));
       }
 
-      .brand-mark img {
+      .logo img {
         width: 100%;
         height: 100%;
-        display: block;
         object-fit: contain;
+        display: block;
       }
 
-      .brand-copy {
+      .title-wrap {
         min-width: 0;
       }
 
-      .brand-copy small,
-      .eyebrow,
-      .section-kicker,
-      .mini-label {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.45rem;
-        margin: 0 0 0.55rem;
-        color: var(--mint);
-        text-transform: uppercase;
-        letter-spacing: 0.14em;
-        font-size: 0.76rem;
+      .eyebrow {
+        margin: 0 0 6px;
+        color: var(--secondary);
+        font-size: 11px;
         font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
       }
 
-      .brand-copy h1 {
+      h1 {
         margin: 0;
         font-family: "Sora", sans-serif;
-        font-size: clamp(1.05rem, 2vw, 1.3rem);
+        font-size: clamp(19px, 5vw, 24px);
         line-height: 1.15;
       }
 
-      .brand-copy p {
-        margin: 0.2rem 0 0;
+      .subtitle {
+        margin: 5px 0 0;
         color: var(--muted);
-        font-size: 0.95rem;
+        font-size: 13px;
+        line-height: 1.45;
       }
 
-      .badge-stack {
+      .lead {
+        margin: 14px 0 0;
+        color: var(--muted);
+        font-size: 13.5px;
+        line-height: 1.65;
+      }
+
+      .mini-badges {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.75rem;
-        justify-content: flex-end;
+        gap: 8px;
+        margin-top: 12px;
       }
 
-      .badge,
-      .trust-chip {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.45rem;
-        padding: 0.7rem 0.95rem;
+      .mini-badge {
+        padding: 7px 10px;
         border-radius: 999px;
-        border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.05);
         color: var(--muted);
-        font-size: 0.83rem;
+        font-size: 11px;
         font-weight: 700;
-        backdrop-filter: blur(8px);
       }
 
-      .badge strong,
-      .trust-chip strong {
-        color: var(--text);
+      .divider {
+        height: 1px;
+        margin: 16px 0;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
       }
 
-      .hero-grid {
-        display: grid;
-        grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.9fr);
-        gap: 1.25rem;
-        margin-top: 1.45rem;
-      }
-
-      .hero-copy-main h2 {
-        margin: 0;
-        max-width: 12ch;
-        font-family: "Sora", sans-serif;
-        font-size: clamp(2.4rem, 5vw, 4.5rem);
-        line-height: 0.96;
-        letter-spacing: -0.05em;
-      }
-
-      .hero-copy-main p {
-        max-width: 42rem;
-        margin: 1.2rem 0 0;
+      .section-title {
+        margin: 0 0 10px 4px;
         color: var(--muted);
-        font-size: 1.04rem;
-        line-height: 1.75;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
       }
 
-      .hero-actions {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 0.85rem;
-        margin-top: 1.45rem;
+      .buttons,
+      .stack {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
       }
 
-      .action {
+      .btn {
         position: relative;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 1rem;
-        min-height: 4.2rem;
-        padding: 1rem 1rem 1rem 1.2rem;
-        border-radius: 22px;
-        border: 1px solid rgba(154, 225, 235, 0.16);
-        background: rgba(255, 255, 255, 0.04);
+        gap: 12px;
+        min-height: 66px;
+        padding: 12px;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: var(--card-soft);
+        color: var(--text);
         text-decoration: none;
         transition:
-          transform 180ms ease,
-          background-color 180ms ease,
-          border-color 180ms ease,
-          box-shadow 180ms ease;
+          transform 140ms ease,
+          background-color 140ms ease,
+          border-color 140ms ease;
+        overflow: hidden;
       }
 
-      .action::before {
+      .btn:hover,
+      .btn:focus-visible {
+        transform: translateY(-1px);
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .btn::before {
         content: "";
         position: absolute;
-        inset: 0 auto 0 0;
-        width: 4px;
-        border-radius: 999px;
-        background: linear-gradient(180deg, var(--cyan), var(--mint));
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 5px;
+        background: linear-gradient(180deg, var(--primary), var(--secondary));
       }
 
-      .action:hover,
-      .action:focus-visible {
-        transform: translateY(-2px);
-        background: rgba(255, 255, 255, 0.08);
-        border-color: rgba(154, 225, 235, 0.28);
-        box-shadow: 0 16px 34px rgba(0, 0, 0, 0.22);
-      }
-
-      .action--primary {
-        background: linear-gradient(135deg, rgba(27, 133, 184, 0.28), rgba(72, 214, 231, 0.18));
-      }
-
-      .action__left {
+      .btn-left {
         display: flex;
         align-items: center;
-        gap: 0.85rem;
+        gap: 12px;
         min-width: 0;
+        z-index: 1;
       }
 
-      .action__icon {
-        width: 2.5rem;
-        height: 2.5rem;
+      .btn-icon {
+        width: 30px;
+        height: 30px;
+        flex-shrink: 0;
         display: grid;
         place-items: center;
-        flex-shrink: 0;
-        border-radius: 15px;
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.08);
       }
 
-      .action__icon svg {
-        width: 1.25rem;
-        height: 1.25rem;
+      .btn-icon svg {
+        width: 24px;
+        height: 24px;
         fill: currentColor;
       }
 
-      .action__label strong,
-      .detail-card strong,
-      .review-card strong,
-      .expertise-card h3 {
+      .btn-label strong {
         display: block;
-        font-size: 0.98rem;
-        font-weight: 800;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.35;
       }
 
-      .action__label span,
-      .detail-card span,
-      .review-card span,
-      .expertise-card p,
-      .contact-note p {
+      .btn-label span {
+        display: block;
         color: var(--muted);
-        font-size: 0.9rem;
-        line-height: 1.6;
+        font-size: 12px;
+        line-height: 1.45;
       }
 
-      .action__pill {
-        padding: 0.55rem 0.85rem;
+      .pill {
+        z-index: 1;
+        padding: 6px 10px;
         border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
         background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        font-size: 0.75rem;
+        font-size: 11px;
         font-weight: 800;
         white-space: nowrap;
       }
 
-      .hero-side {
-        display: grid;
-        gap: 0.95rem;
-      }
-
-      .detail-card,
-      .expertise-card,
-      .review-card,
-      .contact-note {
-        padding: 1.1rem 1.15rem;
-        border-radius: var(--radius-lg);
-        border: 1px solid var(--line);
-        background: var(--panel);
-        backdrop-filter: blur(14px);
-      }
-
-      .detail-card strong {
-        margin-bottom: 0.55rem;
-      }
-
-      .detail-list {
-        display: grid;
-        gap: 0.65rem;
-      }
-
-      .detail-list div {
-        display: flex;
-        justify-content: space-between;
-        gap: 1rem;
-        padding-bottom: 0.65rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      .detail-list div:last-child {
-        padding-bottom: 0;
-        border-bottom: 0;
-      }
-
-      .detail-list span:first-child {
-        color: var(--muted);
-      }
-
-      .detail-list span:last-child {
-        text-align: right;
-        font-weight: 700;
-      }
-
-      .trust-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.7rem;
-        margin-top: 1rem;
-      }
-
-      .hero-stats {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 0.85rem;
-        margin-top: 1.15rem;
-      }
-
-      .hero-stat {
-        padding: 0.95rem 1rem;
-        border-radius: 20px;
-        border: 1px solid var(--line);
+      .info-box {
+        padding: 14px 14px 15px;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
         background: rgba(255, 255, 255, 0.04);
       }
 
-      .hero-stat strong {
+      .info-box strong {
         display: block;
-        margin-bottom: 0.28rem;
-        font-family: "Sora", sans-serif;
-        font-size: 1.15rem;
+        margin-bottom: 8px;
+        font-size: 13.5px;
       }
 
-      .hero-stat span {
-        color: var(--muted);
-        font-size: 0.86rem;
-        line-height: 1.5;
-      }
-
-      .section {
-        margin-top: 1.3rem;
-      }
-
-      .section-grid {
-        display: grid;
-        gap: 1rem;
-      }
-
-      .section-grid--expertise {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-      }
-
-      .section-grid--reviews {
-        grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-      }
-
-      .section-grid--care {
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      }
-
-      .expertise-card {
-        position: relative;
-        overflow: hidden;
-        min-height: 13.5rem;
-      }
-
-      .expertise-card::after {
-        content: "";
-        position: absolute;
-        inset: auto -2rem -3rem auto;
-        width: 8rem;
-        height: 8rem;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(72, 214, 231, 0.12), transparent 72%);
-      }
-
-      .expertise-card h3 {
-        margin: 0 0 0.6rem;
-        font-family: "Sora", sans-serif;
-        font-size: 1.15rem;
-        line-height: 1.2;
-      }
-
-      .review-stack,
-      .contact-stack {
-        display: grid;
-        gap: 1rem;
-      }
-
-      .conditions-card,
-      .journey-step,
-      .review-score {
-        padding: 1.1rem 1.15rem;
-        border-radius: var(--radius-lg);
-        border: 1px solid var(--line);
-        background: var(--panel);
-        backdrop-filter: blur(14px);
-      }
-
-      .conditions-card h3,
-      .journey-step h3,
-      .review-score h3 {
-        margin: 0 0 0.65rem;
-        font-family: "Sora", sans-serif;
-        font-size: 1.15rem;
-        line-height: 1.2;
-      }
-
-      .conditions-card p,
-      .journey-step p,
-      .review-score p {
+      .info-box p,
+      .info-box li,
+      .review-box p {
         margin: 0;
         color: var(--muted);
-        line-height: 1.7;
-      }
-
-      .condition-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.65rem;
-        margin-top: 1rem;
-      }
-
-      .condition-tag {
-        padding: 0.65rem 0.9rem;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        font-size: 0.84rem;
-        font-weight: 700;
-        color: var(--text);
-      }
-
-      .journey-grid {
-        display: grid;
-        gap: 1rem;
-      }
-
-      .journey-step strong {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 2rem;
-        height: 2rem;
-        margin-bottom: 0.8rem;
-        border-radius: 999px;
-        background: linear-gradient(135deg, rgba(72, 214, 231, 0.22), rgba(143, 242, 199, 0.2));
-        color: var(--text);
-        font-size: 0.88rem;
-      }
-
-      .review-card p {
-        margin: 0 0 0.8rem;
-        font-size: 1rem;
-        line-height: 1.75;
-      }
-
-      .review-card em {
-        display: block;
-        margin: 0 0 0.85rem;
-        color: #d9f7fb;
-        font-style: normal;
-        font-size: 0.9rem;
+        font-size: 12.5px;
         line-height: 1.65;
       }
 
-      .review-score {
+      .info-box ul {
+        margin: 0;
+        padding-left: 16px;
+      }
+
+      .review-box {
+        padding: 14px;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
         background:
-          linear-gradient(145deg, rgba(13, 44, 61, 0.92), rgba(10, 24, 39, 0.95)),
-          linear-gradient(135deg, rgba(72, 214, 231, 0.08), rgba(143, 242, 199, 0.08));
+          linear-gradient(145deg, rgba(72, 214, 231, 0.1), rgba(143, 242, 199, 0.08)),
+          rgba(255, 255, 255, 0.04);
       }
 
-      .review-score__value {
+      .review-top {
         display: flex;
-        align-items: end;
-        gap: 0.55rem;
-        margin-bottom: 0.75rem;
-      }
-
-      .review-score__value strong {
-        font-family: "Sora", sans-serif;
-        font-size: 2.4rem;
-        line-height: 1;
-      }
-
-      .review-score__value span {
-        color: var(--muted);
-        font-size: 0.92rem;
-      }
-
-      .contact-note h3 {
-        margin: 0 0 0.55rem;
-        font-family: "Sora", sans-serif;
-        font-size: 1.18rem;
-      }
-
-      .contact-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.75rem;
-        margin-top: 1rem;
-      }
-
-      .ghost-link {
-        display: inline-flex;
         align-items: center;
-        gap: 0.55rem;
-        padding: 0.85rem 1rem;
-        border-radius: 999px;
-        border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.04);
-        text-decoration: none;
-        font-size: 0.88rem;
-        font-weight: 800;
-      }
-
-      .site-footer {
-        margin-top: 1.3rem;
-        padding: 1rem 0 0.25rem;
-        display: flex;
         justify-content: space-between;
-        gap: 1rem;
-        color: var(--muted);
-        font-size: 0.84rem;
+        gap: 12px;
+        margin-bottom: 8px;
       }
 
-      .mobile-quickbar {
-        position: sticky;
-        bottom: 0.75rem;
-        z-index: 20;
-        display: none;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 0.55rem;
-        margin-top: 1rem;
-        padding: 0.55rem;
-        border: 1px solid var(--line);
-        border-radius: 22px;
-        background: rgba(6, 18, 27, 0.94);
-        backdrop-filter: blur(16px);
-        box-shadow: 0 20px 44px rgba(0, 0, 0, 0.3);
+      .review-top strong {
+        font-size: 15px;
       }
 
-      .mobile-quickbar a {
-        display: grid;
-        place-items: center;
-        min-height: 3.35rem;
-        padding: 0.65rem;
-        text-decoration: none;
-        border-radius: 16px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        background: rgba(255, 255, 255, 0.05);
-        font-size: 0.78rem;
+      .review-score {
+        color: var(--text);
+        font-size: 13px;
         font-weight: 800;
       }
 
-      @media (max-width: 980px) {
-        .hero-grid,
-        .section-grid--reviews,
-        .section-grid--care {
-          grid-template-columns: 1fr;
-        }
-
-        .section-grid--expertise {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
+      .footer {
+        margin-top: 16px;
+        text-align: center;
+        color: rgba(238, 248, 251, 0.72);
+        font-size: 11.5px;
       }
 
-      @media (max-width: 720px) {
-        .page-shell {
-          width: min(var(--container), calc(100% - 1rem));
-          padding-top: 1rem;
-        }
-
-        .hero-top,
-        .site-footer {
-          flex-direction: column;
+      @media (max-width: 560px) {
+        .header {
           align-items: flex-start;
         }
 
-        .badge-stack {
-          justify-content: flex-start;
+        .logo {
+          width: 64px;
+          height: 78px;
         }
 
-        .brand-mark {
-          width: 3.5rem;
-          height: 4.2rem;
-          padding: 0.28rem;
-          border-radius: 22px;
+        .btn {
+          min-height: 64px;
         }
 
-        .hero-stats {
-          grid-template-columns: 1fr;
-        }
-
-        .hero-copy-main h2 {
-          font-size: clamp(2.1rem, 12vw, 3.25rem);
-          line-height: 1;
-        }
-
-        .hero-actions,
-        .section-grid--expertise {
-          grid-template-columns: 1fr;
-        }
-
-        .action {
-          min-height: 4rem;
-        }
-
-        .detail-list div {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        .detail-list span:last-child {
-          text-align: left;
-        }
-
-        .action__label span,
-        .brand-copy p,
-        .detail-card span,
-        .review-card span,
-        .contact-note p {
+        .btn-label strong,
+        .btn-label span,
+        .subtitle,
+        .lead,
+        .info-box p,
+        .info-box li,
+        .review-box p {
           overflow-wrap: anywhere;
-        }
-
-        .mobile-quickbar {
-          display: grid;
         }
       }
     </style>
   </head>
   <body>
-    <main class="page-shell">
-      <section class="hero">
-        <div class="hero-top">
-          <a class="brand" href="#contact" aria-label="THERAPY GYM contact details">
-            <span class="brand-mark"><img src="logo-color.png" alt="THERAPY GYM logo" /></span>
-            <span class="brand-copy">
-              <small>Ηράκλειο Κρήτης • Φυσικοθεραπεία</small>
+    <div class="watermark" aria-hidden="true"></div>
+
+    <main class="wrap">
+      <section class="card">
+        <div class="ribbon"></div>
+
+        <div class="inner">
+          <div class="header">
+            <div class="logo">
+              <img src="logo-color.png" alt="THERAPY GYM logo" />
+            </div>
+
+            <div class="title-wrap">
+              <p class="eyebrow">Ηράκλειο Κρήτης • Φυσικοθεραπεία</p>
               <h1>THERAPY GYM</h1>
-              <p>Αγγελάκης Νικόλαος &amp; ΣΙΑ Ε.Ε.</p>
-            </span>
-          </a>
-
-          <div class="badge-stack" aria-label="Βασικές πληροφορίες">
-            <span class="badge"><strong>ΕΟΠΥΥ</strong> διαθέσιμη συνεργασία</span>
-            <span class="badge"><strong>Schroth</strong> scoliosis focus</span>
-            <span class="badge"><strong>McKenzie</strong> &amp; manual therapy</span>
-          </div>
-        </div>
-
-        <div class="hero-grid">
-          <div class="hero-copy-main">
-            <p class="eyebrow">Φυσικοθεραπεία • Αποκατάσταση • Θεραπευτική Άσκηση</p>
-            <h2>Πρότυπο κέντρο φυσικοθεραπείας με ουσιαστική αποκατάσταση και σύγχρονη θεραπευτική προσέγγιση.</h2>
-            <p>
-              Για μυοσκελετικές παθήσεις, αθλητικές κακώσεις, οσφυαλγία, ισχιαλγία, γόνατο, αστράγαλο,
-              μηνίσκο, χιαστό και στοχευμένα προγράμματα στάσης σώματος, Schroth και θεραπευτικής άσκησης.
-            </p>
-
-            <div class="hero-actions">
-              <a class="action action--primary" href="tel:2810232444">
-                <span class="action__left">
-                  <span class="action__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.7 15.7 0 0 0 6.6 6.6l2.2-2.2a1.5 1.5 0 0 1 1.5-.37c1.14.38 2.36.58 3.59.58A1.5 1.5 0 0 1 22 16.93V20A1.5 1.5 0 0 1 20.5 21C10.28 21 2 12.72 2 2.5A1.5 1.5 0 0 1 3.5 1H6.6A1.5 1.5 0 0 1 8.1 2.41c0 1.24.2 2.45.58 3.6a1.5 1.5 0 0 1-.38 1.54l-1.7 1.7Z"/></svg>
-                  </span>
-                  <span class="action__label">
-                    <strong>Καλέστε άμεσα</strong>
-                    <span>281 023 2444</span>
-                  </span>
-                </span>
-                <span class="action__pill">Call</span>
-              </a>
-
-              <a
-                class="action"
-                href="https://www.google.com/maps/search/?api=1&amp;query=THERAPY%20GYM%20%CE%91%CE%B3%CE%B3%CE%B5%CE%BB%CE%AC%CE%BA%CE%B7%CF%82&amp;query_place_id=ChIJPdNeE4BZmhQRJ-QIfG5Q7II"
-                target="_blank"
-                rel="noopener"
-              >
-                <span class="action__left">
-                  <span class="action__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 4.4-4.27 9.53-6.2 11.63a1 1 0 0 1-1.48 0C9.27 18.53 5 13.4 5 9a7 7 0 0 1 7-7Zm0 9.5A2.5 2.5 0 1 0 12 6a2.5 2.5 0 0 0 0 5.5Z"/></svg>
-                  </span>
-                  <span class="action__label">
-                    <strong>Οδηγίες στο χάρτη</strong>
-                    <span>Λεωφ. Εθνικής Αντιστάσεως 62</span>
-                  </span>
-                </span>
-                <span class="action__pill">Maps</span>
-              </a>
-
-              <a
-                class="action"
-                href="https://search.google.com/local/writereview?placeid=ChIJPdNeE4BZmhQRJ-QIfG5Q7II"
-                target="_blank"
-                rel="noopener"
-              >
-                <span class="action__left">
-                  <span class="action__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"><path d="m12 17.27 5.18 3.14-1.38-5.9 4.58-3.97-6.03-.51L12 4.5 9.65 10.03l-6.03.51 4.58 3.97-1.38 5.9L12 17.27Z"/></svg>
-                  </span>
-                  <span class="action__label">
-                    <strong>Google Reviews</strong>
-                    <span>Άφησε την αξιολόγησή σου</span>
-                  </span>
-                </span>
-                <span class="action__pill">Review</span>
-              </a>
-
-              <a class="action" href="mailto:nikos.agelakis.phys@gmail.com">
-                <span class="action__left">
-                  <span class="action__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3h13A2.5 2.5 0 0 1 21 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 18.5v-13Zm2.2-.5L12 10.3 18.8 5H5.2Zm13.8 2.04-6.38 4.98a1 1 0 0 1-1.24 0L5 7.04V18.5c0 .28.22.5.5.5h13a.5.5 0 0 0 .5-.5V7.04Z"/></svg>
-                  </span>
-                  <span class="action__label">
-                    <strong>Στείλε email</strong>
-                    <span>nikos.agelakis.phys@gmail.com</span>
-                  </span>
-                </span>
-                <span class="action__pill">Email</span>
-              </a>
-            </div>
-
-            <div class="trust-row">
-              <span class="trust-chip"><strong>THERAPY GYM</strong> αποκατάσταση με πρόγραμμα</span>
-              <span class="trust-chip"><strong>OMT</strong> &amp; Cert. M.D.T. profile</span>
-              <span class="trust-chip"><strong>Ηράκλειο</strong> εύκολη πρόσβαση</span>
-            </div>
-
-            <div class="hero-stats" aria-label="Κύρια πλεονεκτήματα">
-              <article class="hero-stat">
-                <strong>Εξατομικευμένη αξιολόγηση</strong>
-                <span>Κάθε περιστατικό ξεκινά με κλινική εκτίμηση και σαφή θεραπευτική κατεύθυνση.</span>
-              </article>
-              <article class="hero-stat">
-                <strong>Στοχευμένη αποκατάσταση</strong>
-                <span>Συνδυασμός manual therapy, άσκησης και σύγχρονων πρωτοκόλλων αποκατάστασης.</span>
-              </article>
-              <article class="hero-stat">
-                <strong>Εμπιστοσύνη ασθενών</strong>
-                <span>Οι αξιολογήσεις αναδεικνύουν επαγγελματισμό, οργάνωση και ανθρώπινη προσέγγιση.</span>
-              </article>
+              <p class="subtitle">Αγγελάκης Νικόλαος &amp; ΣΙΑ Ε.Ε.</p>
             </div>
           </div>
 
-          <aside class="hero-side">
-            <article class="detail-card">
-              <p class="section-kicker">Ωράριο</p>
-              <strong>Δευτέρα - Παρασκευή</strong>
-              <div class="detail-list" aria-label="Ωράριο λειτουργίας">
-                <div><span>Πρωί</span><span>08:00 - 14:00</span></div>
-                <div><span>Απόγευμα</span><span>18:00 - 22:00</span></div>
-                <div><span>Σάββατο / Κυριακή</span><span>Κλειστά</span></div>
-              </div>
-            </article>
+          <p class="lead">
+            Πρότυπο κέντρο φυσικοθεραπείας και αποκατάστασης με έμφαση σε μυοσκελετικά περιστατικά,
+            αθλητικές κακώσεις, Schroth, McKenzie και θεραπευτική άσκηση.
+          </p>
 
-            <article class="detail-card">
-              <p class="section-kicker">Στοιχεία</p>
-              <strong>Κλείστε ραντεβού άμεσα</strong>
-              <div class="detail-list" aria-label="Στοιχεία επικοινωνίας">
-                <div><span>Τηλέφωνο</span><span>281 023 2444</span></div>
-                <div><span>Email</span><span>nikos.agelakis.phys@gmail.com</span></div>
-                <div><span>Διεύθυνση</span><span>Εθν. Αντιστάσεως 62</span></div>
-              </div>
-            </article>
+          <div class="mini-badges" aria-label="Κύρια χαρακτηριστικά">
+            <span class="mini-badge">ΕΟΠΥΥ</span>
+            <span class="mini-badge">Schroth</span>
+            <span class="mini-badge">McKenzie</span>
+            <span class="mini-badge">Manual Therapy</span>
+          </div>
 
-            <article class="review-score">
-              <p class="section-kicker">Google Reviews</p>
-              <h3>Ισχυρή εικόνα εμπιστοσύνης και επαγγελματισμού</h3>
-              <div class="review-score__value">
-                <strong>4.8/5</strong>
-                <span>με βάση τις αξιολογήσεις που μου έδωσες από το Google</span>
+          <div class="divider"></div>
+
+          <div class="section-title">Γρήγορες ενέργειες</div>
+          <div class="buttons">
+            <a class="btn" href="tel:2810232444">
+              <span class="btn-left">
+                <span class="btn-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.7 15.7 0 0 0 6.6 6.6l2.2-2.2a1.5 1.5 0 0 1 1.5-.37c1.14.38 2.36.58 3.59.58A1.5 1.5 0 0 1 22 16.93V20A1.5 1.5 0 0 1 20.5 21C10.28 21 2 12.72 2 2.5A1.5 1.5 0 0 1 3.5 1H6.6A1.5 1.5 0 0 1 8.1 2.41c0 1.24.2 2.45.58 3.6a1.5 1.5 0 0 1-.38 1.54l-1.7 1.7Z"/></svg>
+                </span>
+                <span class="btn-label">
+                  <strong>Κλήση</strong>
+                  <span>281 023 2444</span>
+                </span>
+              </span>
+              <span class="pill">Call</span>
+            </a>
+
+            <a
+              class="btn"
+              href="https://www.google.com/maps/search/?api=1&amp;query=THERAPY%20GYM%20%CE%91%CE%B3%CE%B3%CE%B5%CE%BB%CE%AC%CE%BA%CE%B7%CF%82&amp;query_place_id=ChIJPdNeE4BZmhQRJ-QIfG5Q7II"
+              target="_blank"
+              rel="noopener"
+            >
+              <span class="btn-left">
+                <span class="btn-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 4.4-4.27 9.53-6.2 11.63a1 1 0 0 1-1.48 0C9.27 18.53 5 13.4 5 9a7 7 0 0 1 7-7Zm0 9.5A2.5 2.5 0 1 0 12 6a2.5 2.5 0 0 0 0 5.5Z"/></svg>
+                </span>
+                <span class="btn-label">
+                  <strong>Χάρτης</strong>
+                  <span>Λεωφ. Εθνικής Αντιστάσεως 62</span>
+                </span>
+              </span>
+              <span class="pill">Maps</span>
+            </a>
+
+            <a class="btn" href="mailto:nikos.agelakis.phys@gmail.com">
+              <span class="btn-left">
+                <span class="btn-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3h13A2.5 2.5 0 0 1 21 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 18.5v-13Zm2.2-.5L12 10.3 18.8 5H5.2Zm13.8 2.04-6.38 4.98a1 1 0 0 1-1.24 0L5 7.04V18.5c0 .28.22.5.5.5h13a.5.5 0 0 0 .5-.5V7.04Z"/></svg>
+                </span>
+                <span class="btn-label">
+                  <strong>Email</strong>
+                  <span>nikos.agelakis.phys@gmail.com</span>
+                </span>
+              </span>
+              <span class="pill">Mail</span>
+            </a>
+
+            <a
+              class="btn"
+              href="https://search.google.com/local/writereview?placeid=ChIJPdNeE4BZmhQRJ-QIfG5Q7II"
+              target="_blank"
+              rel="noopener"
+            >
+              <span class="btn-left">
+                <span class="btn-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="m12 17.27 5.18 3.14-1.38-5.9 4.58-3.97-6.03-.51L12 4.5 9.65 10.03l-6.03.51 4.58 3.97-1.38 5.9L12 17.27Z"/></svg>
+                </span>
+                <span class="btn-label">
+                  <strong>Google Reviews</strong>
+                  <span>Άφησε την αξιολόγησή σου</span>
+                </span>
+              </span>
+              <span class="pill">Review</span>
+            </a>
+
+            <a class="btn" href="contact.vcf" download>
+              <span class="btn-left">
+                <span class="btn-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M19 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm-7 3a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm6 10H6v-.86C6 14.4 9.33 13.5 12 13.5s6 .9 6 2.64V17Z"/></svg>
+                </span>
+                <span class="btn-label">
+                  <strong>Αποθήκευση επαφής</strong>
+                  <span>VCF για κινητό</span>
+                </span>
+              </span>
+              <span class="pill">Save</span>
+            </a>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="section-title">Βασικές πληροφορίες</div>
+          <div class="stack">
+            <div class="info-box">
+              <strong>Ειδικότητες</strong>
+              <p>
+                Μυοσκελετικά περιστατικά, αθλητικές κακώσεις, οσφυαλγία, ισχιαλγία, γόνατο,
+                αστράγαλος, μηνίσκος, στάση σώματος, Schroth και θεραπευτική άσκηση.
+              </p>
+            </div>
+
+            <div class="info-box">
+              <strong>Ωράριο</strong>
+              <ul>
+                <li>Δευτέρα - Παρασκευή: 08:00 - 14:00</li>
+                <li>Απόγευμα: 18:00 - 22:00</li>
+                <li>Σάββατο / Κυριακή: Κλειστά</li>
+              </ul>
+            </div>
+
+            <div class="review-box">
+              <div class="review-top">
+                <strong>Google</strong>
+                <span class="review-score">4.8/5</span>
               </div>
               <p>
-                Το feedback επαναλαμβάνει τρία μοτίβα: σωστή γνώση του αντικειμένου, άρτιο περιβάλλον
-                αποκατάστασης και σεβασμό στον ασθενή.
+                Σύμφωνα με τα στοιχεία που μου έδωσες, το κέντρο ξεχωρίζει για επαγγελματισμό,
+                σωστή καθοδήγηση, καθαρό χώρο και καταρτισμένο προσωπικό.
               </p>
-            </article>
-          </aside>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-grid section-grid--expertise">
-          <article class="expertise-card">
-            <p class="mini-label">Μυοσκελετικό</p>
-            <h3>Οσφυαλγία, ισχιαλγία και επίμονος πόνος</h3>
-            <p>Κλινική αξιολόγηση, αποσυμπίεση, πρόγραμμα κινητοποίησης και πρακτική καθοδήγηση για καθημερινή λειτουργικότητα.</p>
-          </article>
-
-          <article class="expertise-card">
-            <p class="mini-label">Αθλητικές κακώσεις</p>
-            <h3>Γόνατο, αστράγαλος, μηνίσκος, χιαστός</h3>
-            <p>Αποκατάσταση μετά από τραυματισμό ή υπερχρήση, με προτεραιότητα στην ασφαλή επιστροφή στην κίνηση.</p>
-          </article>
-
-          <article class="expertise-card">
-            <p class="mini-label">Clinical Methods</p>
-            <h3>McKenzie, manual therapy και στοχευμένη άσκηση</h3>
-            <p>Σύγχρονη φυσικοθεραπευτική λογική που δεν μένει μόνο στη συνεδρία, αλλά δίνει και σωστές οδηγίες συνέχειας.</p>
-          </article>
-
-          <article class="expertise-card">
-            <p class="mini-label">Posture &amp; Schroth</p>
-            <h3>Σκολίωση, στάση σώματος και θεραπευτική γυμναστική</h3>
-            <p>Εξειδίκευση σε Schroth Scoliosis Therapy Center και εξατομικευμένα πρωτόκολλα για καλύτερο έλεγχο και υποστήριξη.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-grid section-grid--care">
-          <article class="conditions-card">
-            <p class="section-kicker">Περιστατικά</p>
-            <h3>Πότε αξίζει να κλείσει κάποιος ραντεβού</h3>
-            <p>
-              Για επώδυνες ή επαναλαμβανόμενες ενοχλήσεις, για αποκατάσταση μετά από τραυματισμό ή επέμβαση
-              και για περιπτώσεις όπου χρειάζεται σωστή κατεύθυνση στη στάση σώματος και την κίνηση.
-            </p>
-            <div class="condition-tags" aria-label="Ενδεικτικές περιπτώσεις">
-              <span class="condition-tag">Οσφυαλγία</span>
-              <span class="condition-tag">Ισχιαλγία</span>
-              <span class="condition-tag">Αυχενικό</span>
-              <span class="condition-tag">Αθλητικές κακώσεις</span>
-              <span class="condition-tag">Γοναλγία</span>
-              <span class="condition-tag">Αστράγαλος</span>
-              <span class="condition-tag">Ρήξη μηνίσκου</span>
-              <span class="condition-tag">Μετεγχειρητική αποκατάσταση</span>
-              <span class="condition-tag">Σκολίωση / Schroth</span>
             </div>
-          </article>
-
-          <div class="journey-grid">
-            <article class="journey-step">
-              <strong>1</strong>
-              <h3>Ακούμε και αξιολογούμε σωστά</h3>
-              <p>Πρώτα ξεκαθαρίζεται το πρόβλημα, το ιστορικό και ο στόχος, ώστε να υπάρχει πραγματική θεραπευτική στρατηγική.</p>
-            </article>
-            <article class="journey-step">
-              <strong>2</strong>
-              <h3>Ορίζουμε πλάνο αποκατάστασης</h3>
-              <p>Η συνεδρία δεν μένει αποσπασματική. Χτίζεται πρόγραμμα με μετρήσιμη κατεύθυνση και σωστές οδηγίες συνέχειας.</p>
-            </article>
-            <article class="journey-step">
-              <strong>3</strong>
-              <h3>Στόχος η ασφαλής επιστροφή στην κίνηση</h3>
-              <p>Είτε πρόκειται για καθημερινότητα είτε για άθληση, η αποκατάσταση υπηρετεί λειτουργικότητα και σταθερότητα.</p>
-            </article>
           </div>
+
+          <p class="footer">THERAPY GYM • Φυσικοθεραπεία • Αποκατάσταση • Ηράκλειο Κρήτης</p>
         </div>
       </section>
-
-      <section class="section">
-        <div class="section-grid section-grid--reviews">
-          <div class="review-stack">
-            <article class="review-card">
-              <p>Οι ασθενείς περιγράφουν ένα κέντρο όπου νιώθουν ότι το πρόβλημά τους κατανοείται σωστά και αντιμετωπίζεται ουσιαστικά.</p>
-              <strong>Τι αναφέρουν οι αξιολογήσεις</strong>
-              <em>Παράφραση από τα snippets αξιολογήσεων που μου έδωσες.</em>
-              <span>Έμφαση στην καθοδήγηση, στη γνώση του αντικειμένου και στην πραγματική βοήθεια.</span>
-            </article>
-
-            <article class="review-card">
-              <p>Το περιβάλλον προβάλλεται ως άρτια εξοπλισμένο, πεντακάθαρο και οργανωμένο, με σύγχρονα μέσα και σοβαρή παρουσία.</p>
-              <strong>Τι αναφέρουν οι αξιολογήσεις</strong>
-              <em>Παράφραση από τα snippets αξιολογήσεων που μου έδωσες.</em>
-              <span>Η συνολική εικόνα ενισχύει το αίσθημα αξιοπιστίας από την πρώτη επίσκεψη.</span>
-            </article>
-
-            <article class="review-card">
-              <p>Επαναλαμβάνεται η αίσθηση φιλοξενίας, σεβασμού και σοβαρότητας, με προσωπικό που δείχνει κατάρτιση και συνέπεια.</p>
-              <strong>Τι αναφέρουν οι αξιολογήσεις</strong>
-              <em>Παράφραση από τα snippets αξιολογήσεων που μου έδωσες.</em>
-              <span>Το κέντρο αποπνέει σταθερότητα και ασφάλεια σε όλη τη διαδρομή της αποκατάστασης.</span>
-            </article>
-          </div>
-
-          <div class="contact-stack" id="contact">
-            <article class="contact-note">
-              <p class="section-kicker">Για ραντεβού</p>
-              <h3>Σώσε την επαφή, άνοιξε χάρτη ή πέρασε κατευθείαν στη σελίδα αξιολόγησης.</h3>
-              <p>
-                Το microsite είναι φτιαγμένο για γρήγορη πρόσβαση από κινητό, QR και επαγγελματικές κάρτες,
-                ώστε ο ασθενής να βρίσκει άμεσα τηλέφωνο, διεύθυνση και review link.
-              </p>
-
-              <div class="contact-actions">
-                <a class="ghost-link" href="contact.vcf" download>Αποθήκευση επαφής</a>
-                <a class="ghost-link" href="tel:2810232444">Κλήση τώρα</a>
-                <a
-                  class="ghost-link"
-                  href="https://www.google.com/maps/search/?api=1&amp;query=THERAPY%20GYM%20%CE%91%CE%B3%CE%B3%CE%B5%CE%BB%CE%AC%CE%BA%CE%B7%CF%82&amp;query_place_id=ChIJPdNeE4BZmhQRJ-QIfG5Q7II"
-                  target="_blank"
-                  rel="noopener"
-                >Άνοιγμα χάρτη</a>
-              </div>
-            </article>
-
-            <article class="detail-card">
-              <p class="section-kicker">Τοποθεσία</p>
-              <strong>THERAPY GYM - Αγγελάκης Νικόλαος &amp; ΣΙΑ Ε.Ε.</strong>
-              <span>Λεωφ. Εθνικής Αντιστάσεως 62, 713 06, Ηράκλειο Κρήτης</span>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <footer class="site-footer">
-        <span>THERAPY GYM • Φυσικοθεραπεία • Αποκατάσταση</span>
-        <span id="footer-year"></span>
-      </footer>
-
-      <nav class="mobile-quickbar" aria-label="Γρήγορες ενέργειες κινητού">
-        <a href="tel:2810232444">Κλήση</a>
-        <a
-          href="https://www.google.com/maps/search/?api=1&amp;query=THERAPY%20GYM%20%CE%91%CE%B3%CE%B3%CE%B5%CE%BB%CE%AC%CE%BA%CE%B7%CF%82&amp;query_place_id=ChIJPdNeE4BZmhQRJ-QIfG5Q7II"
-          target="_blank"
-          rel="noopener"
-        >Χάρτης</a>
-        <a
-          href="https://search.google.com/local/writereview?placeid=ChIJPdNeE4BZmhQRJ-QIfG5Q7II"
-          target="_blank"
-          rel="noopener"
-        >Reviews</a>
-      </nav>
     </main>
-
-    <script>
-      document.getElementById("footer-year").textContent = new Date().getFullYear();
-    </script>
   </body>
 </html>
