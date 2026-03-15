@@ -379,6 +379,33 @@
         margin-top: 1rem;
       }
 
+      .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.85rem;
+        margin-top: 1.15rem;
+      }
+
+      .hero-stat {
+        padding: 0.95rem 1rem;
+        border-radius: 20px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .hero-stat strong {
+        display: block;
+        margin-bottom: 0.28rem;
+        font-family: "Sora", sans-serif;
+        font-size: 1.15rem;
+      }
+
+      .hero-stat span {
+        color: var(--muted);
+        font-size: 0.86rem;
+        line-height: 1.5;
+      }
+
       .section {
         margin-top: 1.3rem;
       }
@@ -394,6 +421,10 @@
 
       .section-grid--reviews {
         grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      }
+
+      .section-grid--care {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       }
 
       .expertise-card {
@@ -425,10 +456,105 @@
         gap: 1rem;
       }
 
+      .conditions-card,
+      .journey-step,
+      .review-score {
+        padding: 1.1rem 1.15rem;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--line);
+        background: var(--panel);
+        backdrop-filter: blur(14px);
+      }
+
+      .conditions-card h3,
+      .journey-step h3,
+      .review-score h3 {
+        margin: 0 0 0.65rem;
+        font-family: "Sora", sans-serif;
+        font-size: 1.15rem;
+        line-height: 1.2;
+      }
+
+      .conditions-card p,
+      .journey-step p,
+      .review-score p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .condition-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+        margin-top: 1rem;
+      }
+
+      .condition-tag {
+        padding: 0.65rem 0.9rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        font-size: 0.84rem;
+        font-weight: 700;
+        color: var(--text);
+      }
+
+      .journey-grid {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .journey-step strong {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2rem;
+        height: 2rem;
+        margin-bottom: 0.8rem;
+        border-radius: 999px;
+        background: linear-gradient(135deg, rgba(72, 214, 231, 0.22), rgba(143, 242, 199, 0.2));
+        color: var(--text);
+        font-size: 0.88rem;
+      }
+
       .review-card p {
         margin: 0 0 0.8rem;
         font-size: 1rem;
         line-height: 1.75;
+      }
+
+      .review-card em {
+        display: block;
+        margin: 0 0 0.85rem;
+        color: #d9f7fb;
+        font-style: normal;
+        font-size: 0.9rem;
+        line-height: 1.65;
+      }
+
+      .review-score {
+        background:
+          linear-gradient(145deg, rgba(13, 44, 61, 0.92), rgba(10, 24, 39, 0.95)),
+          linear-gradient(135deg, rgba(72, 214, 231, 0.08), rgba(143, 242, 199, 0.08));
+      }
+
+      .review-score__value {
+        display: flex;
+        align-items: end;
+        gap: 0.55rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .review-score__value strong {
+        font-family: "Sora", sans-serif;
+        font-size: 2.4rem;
+        line-height: 1;
+      }
+
+      .review-score__value span {
+        color: var(--muted);
+        font-size: 0.92rem;
       }
 
       .contact-note h3 {
@@ -467,9 +593,39 @@
         font-size: 0.84rem;
       }
 
+      .mobile-quickbar {
+        position: sticky;
+        bottom: 0.75rem;
+        z-index: 20;
+        display: none;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.55rem;
+        margin-top: 1rem;
+        padding: 0.55rem;
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        background: rgba(6, 18, 27, 0.94);
+        backdrop-filter: blur(16px);
+        box-shadow: 0 20px 44px rgba(0, 0, 0, 0.3);
+      }
+
+      .mobile-quickbar a {
+        display: grid;
+        place-items: center;
+        min-height: 3.35rem;
+        padding: 0.65rem;
+        text-decoration: none;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.05);
+        font-size: 0.78rem;
+        font-weight: 800;
+      }
+
       @media (max-width: 980px) {
         .hero-grid,
-        .section-grid--reviews {
+        .section-grid--reviews,
+        .section-grid--care {
           grid-template-columns: 1fr;
         }
 
@@ -494,6 +650,10 @@
           justify-content: flex-start;
         }
 
+        .hero-stats {
+          grid-template-columns: 1fr;
+        }
+
         .hero-copy-main h2 {
           font-size: clamp(2.1rem, 12vw, 3.25rem);
           line-height: 1;
@@ -506,6 +666,27 @@
 
         .action {
           min-height: 4rem;
+        }
+
+        .detail-list div {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .detail-list span:last-child {
+          text-align: left;
+        }
+
+        .action__label span,
+        .brand-copy p,
+        .detail-card span,
+        .review-card span,
+        .contact-note p {
+          overflow-wrap: anywhere;
+        }
+
+        .mobile-quickbar {
+          display: grid;
         }
       }
     </style>
@@ -608,6 +789,21 @@
               <span class="trust-chip"><strong>OMT</strong> &amp; Cert. M.D.T. profile</span>
               <span class="trust-chip"><strong>Ηράκλειο</strong> εύκολη πρόσβαση</span>
             </div>
+
+            <div class="hero-stats" aria-label="Κύρια πλεονεκτήματα">
+              <article class="hero-stat">
+                <strong>Εξατομικευμένη αξιολόγηση</strong>
+                <span>Κάθε περιστατικό ξεκινά με κλινική εκτίμηση και σαφή θεραπευτική κατεύθυνση.</span>
+              </article>
+              <article class="hero-stat">
+                <strong>Στοχευμένη αποκατάσταση</strong>
+                <span>Συνδυασμός manual therapy, άσκησης και σύγχρονων πρωτοκόλλων αποκατάστασης.</span>
+              </article>
+              <article class="hero-stat">
+                <strong>Εμπιστοσύνη ασθενών</strong>
+                <span>Οι αξιολογήσεις αναδεικνύουν επαγγελματισμό, οργάνωση και ανθρώπινη προσέγγιση.</span>
+              </article>
+            </div>
           </div>
 
           <aside class="hero-side">
@@ -629,6 +825,19 @@
                 <div><span>Email</span><span>nikos.agelakis.phys@gmail.com</span></div>
                 <div><span>Διεύθυνση</span><span>Εθν. Αντιστάσεως 62</span></div>
               </div>
+            </article>
+
+            <article class="review-score">
+              <p class="section-kicker">Google Reviews</p>
+              <h3>Ισχυρή εικόνα εμπιστοσύνης και επαγγελματισμού</h3>
+              <div class="review-score__value">
+                <strong>4.8/5</strong>
+                <span>με βάση τις αξιολογήσεις που μου έδωσες από το Google</span>
+              </div>
+              <p>
+                Το feedback επαναλαμβάνει τρία μοτίβα: σωστή γνώση του αντικειμένου, άρτιο περιβάλλον
+                αποκατάστασης και σεβασμό στον ασθενή.
+              </p>
             </article>
           </aside>
         </div>
@@ -663,24 +872,69 @@
       </section>
 
       <section class="section">
+        <div class="section-grid section-grid--care">
+          <article class="conditions-card">
+            <p class="section-kicker">Περιστατικά</p>
+            <h3>Πότε αξίζει να κλείσει κάποιος ραντεβού</h3>
+            <p>
+              Για επώδυνες ή επαναλαμβανόμενες ενοχλήσεις, για αποκατάσταση μετά από τραυματισμό ή επέμβαση
+              και για περιπτώσεις όπου χρειάζεται σωστή κατεύθυνση στη στάση σώματος και την κίνηση.
+            </p>
+            <div class="condition-tags" aria-label="Ενδεικτικές περιπτώσεις">
+              <span class="condition-tag">Οσφυαλγία</span>
+              <span class="condition-tag">Ισχιαλγία</span>
+              <span class="condition-tag">Αυχενικό</span>
+              <span class="condition-tag">Αθλητικές κακώσεις</span>
+              <span class="condition-tag">Γοναλγία</span>
+              <span class="condition-tag">Αστράγαλος</span>
+              <span class="condition-tag">Ρήξη μηνίσκου</span>
+              <span class="condition-tag">Μετεγχειρητική αποκατάσταση</span>
+              <span class="condition-tag">Σκολίωση / Schroth</span>
+            </div>
+          </article>
+
+          <div class="journey-grid">
+            <article class="journey-step">
+              <strong>1</strong>
+              <h3>Ακούμε και αξιολογούμε σωστά</h3>
+              <p>Πρώτα ξεκαθαρίζεται το πρόβλημα, το ιστορικό και ο στόχος, ώστε να υπάρχει πραγματική θεραπευτική στρατηγική.</p>
+            </article>
+            <article class="journey-step">
+              <strong>2</strong>
+              <h3>Ορίζουμε πλάνο αποκατάστασης</h3>
+              <p>Η συνεδρία δεν μένει αποσπασματική. Χτίζεται πρόγραμμα με μετρήσιμη κατεύθυνση και σωστές οδηγίες συνέχειας.</p>
+            </article>
+            <article class="journey-step">
+              <strong>3</strong>
+              <h3>Στόχος η ασφαλής επιστροφή στην κίνηση</h3>
+              <p>Είτε πρόκειται για καθημερινότητα είτε για άθληση, η αποκατάσταση υπηρετεί λειτουργικότητα και σταθερότητα.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
         <div class="section-grid section-grid--reviews">
           <div class="review-stack">
             <article class="review-card">
-              <p>Εξαιρετική καθοδήγηση, άμεση κατανόηση του προβλήματος και αίσθηση ότι ο ασθενής αντιμετωπίζεται με πραγματικό ενδιαφέρον.</p>
-              <strong>Feedback από Google Reviews</strong>
-              <span>Έμφαση στην ουσιαστική βοήθεια και τη σωστή αντιμετώπιση.</span>
+              <p>Οι ασθενείς περιγράφουν ένα κέντρο όπου νιώθουν ότι το πρόβλημά τους κατανοείται σωστά και αντιμετωπίζεται ουσιαστικά.</p>
+              <strong>Τι αναφέρουν οι αξιολογήσεις</strong>
+              <em>Παράφραση από τα snippets αξιολογήσεων που μου έδωσες.</em>
+              <span>Έμφαση στην καθοδήγηση, στη γνώση του αντικειμένου και στην πραγματική βοήθεια.</span>
             </article>
 
             <article class="review-card">
-              <p>Άρτια εξοπλισμένος χώρος, σύγχρονα μηχανήματα και καθαρό, οργανωμένο περιβάλλον που εμπνέει εμπιστοσύνη.</p>
-              <strong>Feedback από Google Reviews</strong>
-              <span>Η εικόνα του κέντρου δείχνει επαγγελματισμό και φροντίδα.</span>
+              <p>Το περιβάλλον προβάλλεται ως άρτια εξοπλισμένο, πεντακάθαρο και οργανωμένο, με σύγχρονα μέσα και σοβαρή παρουσία.</p>
+              <strong>Τι αναφέρουν οι αξιολογήσεις</strong>
+              <em>Παράφραση από τα snippets αξιολογήσεων που μου έδωσες.</em>
+              <span>Η συνολική εικόνα ενισχύει το αίσθημα αξιοπιστίας από την πρώτη επίσκεψη.</span>
             </article>
 
             <article class="review-card">
-              <p>Φιλόξενο κέντρο με καταρτισμένο προσωπικό και σοβαρότητα σε κάθε στάδιο της αποκατάστασης.</p>
-              <strong>Feedback από Google Reviews</strong>
-              <span>Ένα περιβάλλον που σε κάνει να νιώθεις ασφαλής από την πρώτη επίσκεψη.</span>
+              <p>Επαναλαμβάνεται η αίσθηση φιλοξενίας, σεβασμού και σοβαρότητας, με προσωπικό που δείχνει κατάρτιση και συνέπεια.</p>
+              <strong>Τι αναφέρουν οι αξιολογήσεις</strong>
+              <em>Παράφραση από τα snippets αξιολογήσεων που μου έδωσες.</em>
+              <span>Το κέντρο αποπνέει σταθερότητα και ασφάλεια σε όλη τη διαδρομή της αποκατάστασης.</span>
             </article>
           </div>
 
@@ -718,6 +972,20 @@
         <span>THERAPY GYM • Φυσικοθεραπεία • Αποκατάσταση</span>
         <span id="footer-year"></span>
       </footer>
+
+      <nav class="mobile-quickbar" aria-label="Γρήγορες ενέργειες κινητού">
+        <a href="tel:2810232444">Κλήση</a>
+        <a
+          href="https://www.google.com/maps/search/?api=1&amp;query=THERAPY%20GYM%20%CE%91%CE%B3%CE%B3%CE%B5%CE%BB%CE%AC%CE%BA%CE%B7%CF%82&amp;query_place_id=ChIJPdNeE4BZmhQRJ-QIfG5Q7II"
+          target="_blank"
+          rel="noopener"
+        >Χάρτης</a>
+        <a
+          href="https://search.google.com/local/writereview?placeid=ChIJPdNeE4BZmhQRJ-QIfG5Q7II"
+          target="_blank"
+          rel="noopener"
+        >Reviews</a>
+      </nav>
     </main>
 
     <script>
